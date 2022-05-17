@@ -3,6 +3,7 @@
 namespace Tests;
 
 use PHPUnit\Framework\TestCase;
+use Todo\ItemAlreadyExistsException;
 use Todo\ItemText;
 use Todo\ListComplete;
 use Todo\ListGeneric;
@@ -19,6 +20,9 @@ class ListMultipleTest extends TestCase
         $this->listGeneric = $this->listManager->addList(new ListGeneric);
     }
 
+    /**
+     * @throws ItemAlreadyExistsException
+     */
     public function testItemIsAdded()
     {
         $item = new ItemText;

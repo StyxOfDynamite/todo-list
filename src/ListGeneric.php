@@ -22,7 +22,7 @@ class ListGeneric implements SplObserver, Countable
 
     public function update(SplSubject $subject): void
     {
-        if ($subject instanceof IItem) {
+        if ($subject instanceof ItemInterface) {
             $this->items[$subject->getUniqueIdentifier()] = $subject;
         }
     }
@@ -32,7 +32,7 @@ class ListGeneric implements SplObserver, Countable
         return $this->items;
     }
 
-    public function removeItem(IItem $item)
+    public function removeItem(ItemInterface $item)
     {
         $item->detach($this);
         unset($this->items[$item->getUniqueIdentifier()]);

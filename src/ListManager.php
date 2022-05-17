@@ -19,7 +19,7 @@ class ListManager
             $item->attach($list);
         }
 
-        // Run each item through each list so it can decide what to do with the existing item
+        // Run each item through each list, so it can decide what to do with the existing item
         foreach ($this->items as $item) {
             $item->notify();
         }
@@ -27,7 +27,10 @@ class ListManager
         return $list;
     }
 
-    public function addItem(IItem $item)
+    /**
+     * @throws ItemAlreadyExistsException
+     */
+    public function addItem(ItemInterface $item)
     {
 
         // Ensure the item doesn't already exist
@@ -47,7 +50,7 @@ class ListManager
         $item->notify();
     }
 
-    public function removeItem(IItem $item)
+    public function removeItem(ItemInterface $item)
     {
 
         // Loop through lists and detach the item if exists

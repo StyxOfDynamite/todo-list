@@ -15,7 +15,7 @@ class ItemText extends Item
         $this->id = uniqid();
     }
 
-    public function tick($completed): void
+    public function tick(bool $completed): void
     {
         $this->completed = $completed;
         $this->notify();
@@ -31,7 +31,7 @@ class ItemText extends Item
         return $this->id;
     }
 
-    public function setText(string $string)
+    public function setText(string $string): ItemText
     {
         $this->text = $string;
         return $this;

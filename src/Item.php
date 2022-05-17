@@ -5,7 +5,7 @@ namespace Todo;
 use SplObjectStorage;
 use SplObserver;
 
-abstract class Item implements IItem
+abstract class Item implements ItemInterface
 {
     private $observers;
 
